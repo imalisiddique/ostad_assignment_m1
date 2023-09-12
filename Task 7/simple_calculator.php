@@ -2,8 +2,8 @@
 
 // Build a PHP calculator named simple_calculator.php that performs basic arithmetic operations. Provide input fields for two numbers and a dropdown to select the operation (addition, subtraction, multiplication, division). Display the result of the chosen operation.
 
-$input1 = 45;
-$input2 = 2;
+$input1 = 10;
+$input2 = 0;
 
 $operation = "division";
 
@@ -25,11 +25,8 @@ switch ($operation) {
         break;
 
     case 'division':
-        $result = $input1 / $input2;
+        $result = ($input2 != 0) ? ($input1 / $input2) : "can't divide by zero";
         echo $result;
         break;
-    
-    default:
-        echo "NA";
-        break;
+
 }
