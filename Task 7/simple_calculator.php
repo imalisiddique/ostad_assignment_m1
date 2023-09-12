@@ -25,7 +25,7 @@ switch ($operation) {
         break;
 
     case 'division':
-        $result = ($input2 != 0) ? ($input1 / $input2) : "can't divide by zero";
+        $result = ($input2 != 0) ? ($input1 / $input2) : "Can't divide by zero";
         echo $result;
         break;
 
