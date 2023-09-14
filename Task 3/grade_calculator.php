@@ -1,33 +1,50 @@
-<?php 
+<form method="post" action="">
 
-// Develop a PHP script named grade_calculator.php that computes the average of three test scores and determines the corresponding letter grade. Create a form where the user can input three test scores. Calculate the average and display it along with the corresponding grade (A, B, C, D, F).
+    <label for="bangla">Number in Bangla</label><br>
+    <input type="number" name="bangla" min="0" max="100" required><br>
 
-$input1 = 05;
-$input2 = 35;
-$input3 = 55;
+     <label for="english">Number in English</label><br>
+    <input type="number" name="english" min="0" max="100" required><br>
 
-$average = (int) (($input1 + $input2 + $input3) / 3);
+     <label for="math">Number in Math</label><br>
+    <input type="number" name="math" min="0" max="100" required><br><br>
 
- var_dump ($average) ."\n";
 
-switch ($average) {
-    case $average >= 80 && $average <=100:
-        echo "A";
+    <input type="submit" value="Submit">
+
+</form>
+
+
+<?php
+
+if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+
+    $bangla = $_POST["bangla"];
+    $english = $_POST["english"];
+    $math = $_POST["math"];
+
+    $average = (int) (  ( $bangla + $english + $math ) / 3 );
+
+    switch ( $average ) {
+    case $average >= 80 && $average <= 100:
+        echo "Your total average number {$average} and Grade: A";
         break;
 
-    case $average >= 60 && $average <=79:
-        echo "B";
+    case $average >= 60 && $average <= 79:
+        echo "Your total average number {$average} and Grade: B";
         break;
 
-    case $average >= 50 && $average <=59:
-        echo "C";
+    case $average >= 50 && $average <= 59:
+        echo "Your total average number {$average} and Grade: C";
         break;
 
-    case $average >= 33 && $average <=49:
-        echo "D";
+    case $average >= 33 && $average <= 49:
+        echo "Your total average number {$average} and Grade: D";
         break;
-    
-    default:
-        echo "F";
+
+    case $average <= 32:
+        echo "Your total average number {$average} and Grade: F";
         break;
+    }
+
 }
