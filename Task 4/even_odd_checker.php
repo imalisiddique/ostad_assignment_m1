@@ -1,14 +1,26 @@
+<form method="post" action="">
+
+    <label for="number">Input Your Number</label><br>
+    <input type="number" name="number" min="0" required><br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+
 <?php
 
-// Build a PHP program called even_odd_checker.php that checks whether a given number is even or odd. Provide an input field where the user can enter a number. Display a message indicating whether the number is even or odd.
+if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
-$number = 123;
-$check = $number % 2;
+    $number = $_POST["number"];
+    $remainder = $number % 2;
 
-// var_dump($check);
+    if ( $number == 0 ) {
+        echo "Number is Zero";
+    } elseif ( $remainder == 0 ) {
+        echo "{$number} is Even number";
+    } else {
+        echo "{$number} is Odd number";
+    }
 
-if ($check == 0){
-    echo "{$number} is Even number";
-}else {
-    echo "{$number} is Odd number";
 }
