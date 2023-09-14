@@ -1,10 +1,24 @@
-<?php 
+<form method="post" action="">
 
-// Develop a PHP tool named comparison_tool.php that compares two numbers and displays the larger one using the ternary operator. Create a form where the user can input two numbers. Use the ternary operator to determine the larger number and display the result.
+    <label for="number1">Number 01</label><br>
+    <input type="number" name="number1" required><br>
 
-$number1 = 62;
-$number2 = 45;
+    <label for="number2">Number 02</label><br>
+    <input type="number" name="number2" required><br><br>
 
-$compare = $number1 > $number2 ? "{$number1}" : "{$number2}";
+    <input type="submit" value="Compare">
 
-echo $compare;
+</form>
+
+<?php
+
+if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+
+    $number1 = $_POST["number1"];
+    $number2 = $_POST["number2"];
+
+    $compare = $number1 > $number2 ? "{$number1} is large number" : "{$number2} is large number";
+
+    echo $compare;
+
+}
